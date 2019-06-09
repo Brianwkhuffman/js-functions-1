@@ -84,17 +84,21 @@ function square(x){
  */
 function calculate(operation, x, y){
     if (operation === 'add'){
-        console.log(x + ' + ' + y + ' = ' + x+y);
-        return (x+y);
+        var calcAdd = x+y;
+        console.log(x + ' + ' + y + ' = ' + calcAdd);
+        return calcAdd;
     }else if (operation === 'subtract'){
-        console.log(x + ' - ' + y + ' = ' + x-y);
-        return (x-y);
+        var calcSub = x-y;
+        console.log(x + ' - ' + y + ' = ' + calcSub);
+        return calcSub;
     }else if (operation === 'multiply'){
-        console.log(x + ' * ' + y + ' = ' + x*y);
-        return (x*y);
+        var calcMult = x*y;
+        console.log(x + ' * ' + y + ' = ' + calcMult);
+        return calcMult;
     }else if (operation === 'divide'){
-        console.log(x + ' / ' + y + ' = ' + x/y);
-        return (x/y);
+        var calcDiv = x/y;
+        console.log(x + ' / ' + y + ' = ' + calcDiv);
+        return calcDiv;
     }else{
         return 'does not compute';
     }
@@ -191,7 +195,21 @@ function isOdd(n){
  * @param {number} total maximum possible score
  * @return {string} the score represented as a letter grade
  */
-
+var grade = '';
+function letterGrade(score, total){
+    let percentage = (score/total * 100)
+    if (percentage >= 90){
+        return grade += 'A';
+    }else if (percentage >=80){
+        return grade += 'B';
+    }else if (percentage >= 70){
+        return grade += 'C';
+    }else if (percentage >= 60){
+        return grade += 'D';
+    }else{
+        return grade += 'F';
+    }
+} //not sure why this isn't clearing. works in jsbin fine
 
 /**
  * Checks if a `restaurant` object has a `reviews` property.
@@ -200,7 +218,14 @@ function isOdd(n){
  * @param {object} restaurant   represents a restaurant object
  * @return {object} restaurant
  */
-
+function incrementReviews(restaurant){
+    if (restaurant.hasOwnProperty('reviews') === true){
+        restaurant.reviews ++;
+    }else{
+        restaurant.reviews = 1;
+    }
+    return restaurant;
+}
 
 /**
  * Joins two strings with a space.
@@ -208,7 +233,9 @@ function isOdd(n){
  * @param {string} word2
  * @return {string} joined the words joined with a space
  */
-
+function combine(word1, word2){
+    return word1 + ' ' + word2;
+}
 
 /**
  * Returns a circle object with the properties `circumference` and `area`.
@@ -217,4 +244,11 @@ function isOdd(n){
  * @param {number} radius
  * @return {object} circle
  */
-
+var circle = {};
+function createCircle(radius){
+   let circResult = 2 * Math.PI * radius; //circumference of a circle is (2pi * radius)
+   let areaResult = Math.PI * Math.pow(radius, 2); //area of a circle is (pi * radius squared)
+    circle.circumference = circResult;
+    circle.area = areaResult;
+    return circle;
+}
