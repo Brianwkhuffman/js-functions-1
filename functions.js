@@ -199,15 +199,15 @@ var grade = '';
 function letterGrade(score, total){
     let percentage = (score/total * 100)
     if (percentage >= 90){
-        return grade += 'A';
+        return 'A';
     }else if (percentage >=80){
-        return grade += 'B';
+        return 'B';
     }else if (percentage >= 70){
-        return grade += 'C';
+        return'C';
     }else if (percentage >= 60){
-        return grade += 'D';
+        return 'D';
     }else{
-        return grade += 'F';
+        return'F';
     }
 } //not sure why this isn't clearing. works in jsbin fine
 
